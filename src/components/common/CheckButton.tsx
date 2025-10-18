@@ -1,10 +1,10 @@
 interface CheckButtonProps {
   checkHover: boolean;
-  onCheckHover: React.Dispatch<React.SetStateAction<boolean>>;
-  onCheck: React.Dispatch<React.SetStateAction<boolean>>;
+  setCheckHover: React.Dispatch<React.SetStateAction<boolean>>;
+  setCheck: React.Dispatch<React.SetStateAction<boolean>>;
   check: boolean;
   isHeld: boolean;
-  onIsHeld: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsHeld: React.Dispatch<React.SetStateAction<boolean>>;
   onHold: () => void;
   onRelease: () => void;
 }
@@ -15,9 +15,9 @@ interface CheckButtonProps {
 //#bdbdbd hover border
 function CheckButton({
   checkHover,
-  onCheckHover,
+  setCheckHover,
   check,
-  onCheck,
+  setCheck,
   isHeld,
   onHold,
   onRelease,
@@ -57,12 +57,12 @@ function CheckButton({
             border: `1px solid ${borderColor}`,
             boxShadow: "none",
           }}
-          onMouseEnter={() => onCheckHover(true)}
-          onMouseLeave={() => onCheckHover(false)}
+          onMouseEnter={() => setCheckHover(true)}
+          onMouseLeave={() => setCheckHover(false)}
           onMouseDown={onHold}
           onMouseUp={() => {
             onRelease();
-            onCheck(!check);
+            setCheck(!check);
           }}
         >
           {(check || checkHover) && (

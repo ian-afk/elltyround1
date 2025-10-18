@@ -1,11 +1,11 @@
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import CheckButton from "./CheckButton";
 
 interface CardsProps {
-  children: ReactNode;
+  label: string;
 }
 
-function Cards({ children }: CardsProps) {
+function Cards({ label }: CardsProps) {
   const [check, setCheck] = useState(false);
   const [checkHover, setCheckHover] = useState(false);
   const [isHeld, setIsHeld] = useState(false);
@@ -28,14 +28,14 @@ function Cards({ children }: CardsProps) {
         onRelease();
       }}
     >
-      {children}
+      <label>{label}</label>
       <CheckButton
         check={check}
-        onCheck={setCheck}
+        setCheck={setCheck}
         checkHover={checkHover}
-        onCheckHover={setCheckHover}
+        setCheckHover={setCheckHover}
         isHeld={isHeld}
-        onIsHeld={setIsHeld}
+        setIsHeld={setIsHeld}
         onHold={onHold}
         onRelease={onRelease}
       />
