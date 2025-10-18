@@ -28,22 +28,18 @@ function App() {
     shadow-[0_0_20px_2px_rgba(0,0,0,0.1)]
       drop-shadow-2xl
 
-      py-2.5 px-3 rounded-md flex  justify-between flex-col font-montserrat"
+      py-2.5 px-3 rounded-md flex  justify-between flex-col font-montserrat text-sm"
       >
         <div>
-          <Cards>
-            <label>All Pages</label>
-          </Cards>
+          <Cards label="All Pages" />
         </div>
-        <hr className="text-gray-400" />
+        <hr className="text-gray-300 my-2.5" />
         <div>
           {listPages.map(({ id, label }) => (
-            <Cards key={id}>
-              <label>{label}</label>
-            </Cards>
+            <Cards key={id} label={label} />
           ))}
         </div>
-        <hr className="text-gray-400" />
+        <hr className="text-gray-300 my-2.5" />
         <Button />
       </div>
     </>
